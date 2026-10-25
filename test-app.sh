@@ -3,7 +3,7 @@ set -euo pipefail
 for attempt in {1..30}; do
  if body=$(curl -fsS --max-time 2 \
  http://127.0.0.1:5000/); then
- if grep -Fq 'CMP6237 Sample App' <<< "$body"; then
+ if grep -Fq 'This marker is absent' <<< "$body"; then
  echo "PASS: HTTP response contains the app marker"
  exit 0
  fi
